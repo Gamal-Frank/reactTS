@@ -2,17 +2,17 @@ import Counter from "./components/Counter";
 import Heading from "./components/Heading";
 import List from "./components/List";
 import Section from "./components/Section";
-import { useState } from "react";
-
+import { useCallback,  useState } from "react";
 function App() {
   const [count, setCount] = useState(1);
 
-  function add(): void {
+
+ const add = useCallback ((): void=> {
     setCount(count + 1);
-  }
-  function substract(): void {
+  },[count])
+ const substract = useCallback ((): void=> {
     setCount(count - 1);
-  }
+  },[count])
 
   return (
     <div className="bg-black h-[100vh]">
